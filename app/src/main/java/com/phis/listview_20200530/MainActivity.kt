@@ -29,5 +29,6 @@ class MainActivity : AppCompatActivity() {
 
 
         studentListView.adapter = studentAdapter
+        studentListView.setOnItemClickListener { parent, view, position, id ->  }
     }
 }
