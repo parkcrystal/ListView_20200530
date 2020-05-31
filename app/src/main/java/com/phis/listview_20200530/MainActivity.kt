@@ -1,7 +1,10 @@
 package com.phis.listview_20200530
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import com.phis.listview_20200530.adapters.StudentAdapter
 import com.phis.listview_20200530.datas.Student
 import kotlinx.android.synthetic.main.activity_main.*
@@ -29,6 +32,27 @@ class MainActivity : AppCompatActivity() {
 
 
         studentListView.adapter = studentAdapter
-        studentListView.setOnItemClickListener { parent, view, position, id ->  }
+        
+//        몇번 줄이 눌렸는지 확인  = position이 몇?
+        studentListView.setOnItemClickListener { parent, view, position, id ->
+            Log.d("!!리스트뷰 아이템 클릭!!", "${position}번 줄 클릭")
+
+            
+//            position으로 배열(ArrayList)에서 학생정보 출력
+            val clickedStudent = students.get(position)
+
+            
+//          빼낸 학생정보를 토스트로 출력.
+            Toast.makeText(this, clickedStudent.name, Toast.LENGTH_SHORT).show()
+
+
+
+            val myIntent = Intent(this, ViewStudentActivity::class.java)
+            myIntent.putExtra("student", clickedStudent)
+            startActivity(myIntent)
+
+
+        }
+
     }
 }
