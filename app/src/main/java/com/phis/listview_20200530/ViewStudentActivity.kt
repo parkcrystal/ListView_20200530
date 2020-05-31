@@ -18,7 +18,7 @@ class ViewStudentActivity : AppCompatActivity() {
 
         
         nameTxt.text = student.name
-        ageTxt.text = "${student.getKoreanAge(2020)}세(${student.birthYear}년생"
+        ageTxt.text = "${student.getKoreanAge(2020)}세(${student.birthYear}년생)"
         
         
         if(student.isMale) {

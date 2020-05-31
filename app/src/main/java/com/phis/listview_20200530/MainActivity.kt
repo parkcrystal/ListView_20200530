@@ -1,6 +1,7 @@
 package com.phis.listview_20200530
 
 import android.content.Intent
+import android.icu.text.Transliterator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -53,6 +54,17 @@ class MainActivity : AppCompatActivity() {
 
 
         }
+
+
+        studentListView.setOnItemLongClickListener { parent, view, position, id ->
+
+            Toast.makeText(this,"${position}번 줄 롱클릭", Toast.LENGTH_LONG).show()
+
+//        Long 클릭은 boolean 값을 리턴해줘야 함. =>  롱클릭 전용 : True, 클릭도 같이: False
+            return@setOnItemLongClickListener true
+
+        }
+
 
     }
 }
